@@ -1,30 +1,38 @@
 <!DOCTYPE html>
-<html>
-<head>
-	<meta charset= "UTF-8">
-	<title>modul 2 - latihan 1</title>
-</head>
-<body>
-	<table border="1" cellpadding="3" cellspacing="0">
-		<tr>
-			<th>kolom 1</th>
-			<th>kolom 2</th>
-			<th>kolom 3</th>
-			<th>kolom 4</th>
-			<th>kolom 5</th>
-		</tr>
-		<?php
-		for ($row=1; $row <=15; $row++){
-			echo "<tr>";
-			for($col=1; $col <=5; $col++){
-				
-				echo "<td>baris $row kolom $col </td>";
-			}
-			echo "</tr>";
-		}
+<html lang="en">
+    <head>
+        <meta charser="UTF-8">
+        <meta name="viewport" content="width=device-width,initial-scale=1.0">
+        <title></title>
+        <style>
+            .kotak{
+                width: 50px;
+                height: 50px;
+                margin: 5px;
+                float: left;
+                text-align: center;
+                line-height: 50px;
+                border: 1px solid #000;
+             }
+             .clear{
+                clear : both;
+             }
 
-		 ?>
+             </style>
+             </head>
+             <body>
+                <?php
+                $jumlah_baris=5;
+                $jumlah_kolom=5;
 
-  </table>
-</body>
-</html>
+                for($i=1; $i <=  $jumlah_baris; $i++){
+                    for ($j = 1 ; $j <= $i; $j++){
+                        $class = ($i % 2 == 0) ? 'genap' : 'ganjil';
+                        echo '<div class= "kotak ' .$class . '">' . $j . '</div>';
+                    }
+                    echo '<div class ="clear"></div';
+
+                }
+                ?>
+                </body>
+                </html>

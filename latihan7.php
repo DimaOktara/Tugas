@@ -1,44 +1,50 @@
 <!DOCTYPE html>
 <html lang="en">
-    <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title></title>
-        <style>
-            .kotak{
-                width: 50px;
-                height: 50px;
-                margin: 5 px;
-                float: left;
-                text-align: center;
-                line-height: 50px;
-            }
-            .clear{
-                clear: both;
-            }
-            .ganjil{
-                background-color: #003;
-                color: #fff;
-            }
-            .genap{
-                background-color: #999;
-            }
 
-            </style>
-            </head>
-            <body>
-                <?php
-                $jumlah_baris=5;
-                $jumlah_kolom =5;
+<head>
+    <title>GANJIL GENAP PRIMA</title>
+</head>
 
-                for ($i=1; $i <= $jumlah_baris; $i++){
-                    for ($j = 1 ;$j <= $i; $j++){
-                        $class = ($i % 2 == 0) ? 'genap' : 'ganjil';
-                        echo '<div class= "kotak ' .$class . '">' . $j . '</div>';
-                    }
-                    echo '<div class ="clear"></div>';
+<body>
 
-                }
-                ?>
-                </body>
-                </html>
+    <?php
+        function Prima($a) {
+        if ($a <= 1) {
+            return false;
+        }
+        for ($i = 2; $i <= sqrt($a); $i++) {
+            if ($a % $i == 0) {
+                return false;
+            }
+        }
+        return true;
+        }
+        
+    echo "Pengulangan Untuk Mencari kategori bilangan :<br>";
+
+    for($j = 1; $j <= 20; $j++){
+        echo "<br>";
+        if( ($j % 2) == 0){
+            echo "• Angka $j adalah bilangan Genap";
+        }else {
+            echo "• Angka $j adalah bilangan Ganjil";
+        }	
+
+        if (Prima($j)) {
+            if ($j > 10) {
+                echo " dan sekaligus bilangan Prima";
+            } else {
+                echo " sekaligus bilangan Prima";
+            }
+        }
+        if($j >=1){
+            echo "<br>";
+        }else{
+            echo "";
+        }
+    }
+    ?>
+
+</body>
+
+</html>
